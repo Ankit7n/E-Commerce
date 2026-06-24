@@ -19,7 +19,7 @@ const Dashboard = () => {
     if (status === "idle") {
       dispatch(fetchOrders());
     }
-  }, [dispatch]);
+  }, [dispatch, status]);
 
   useEffect(() => {
     const interval = setInterval(() => {

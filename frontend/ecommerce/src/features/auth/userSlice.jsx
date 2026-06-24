@@ -8,9 +8,7 @@ const initialState = {
 
 const userSlice = createSlice({
   name: "user",
-
   initialState,
-
   reducers: {
     loginSuccess: (state, action) => {
       state.user = action.payload;

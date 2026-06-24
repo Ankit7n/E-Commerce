@@ -1,0 +1,215 @@
+@import "tailwindcss";
+
+/* =========================
+   DESIGN SYSTEM TOKENS
+========================= */
+
+@theme {
+  /* ================= COLORS ================= */
+  --color-primary: #004ac6;
+  --color-primary-container: #2563eb;
+  --color-inverse-primary: #b4c5ff;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #eeefff;
+
+  --color-secondary: #545f73;
+  --color-secondary-container: #d5e0f8;
+
+  --color-tertiary: #943700;
+  --color-tertiary-container: #bc4800;
+  --color-cta-orange: #f97316;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+
+  --color-background: #faf8ff;
+  --color-on-background: #191b23;
+
+  --color-surface: #faf8ff;
+  --color-surface-variant: #e1e2ed;
+  --color-surface-container: #ededf9;
+  --color-surface-container-low: #f3f3fe;
+  --color-surface-container-high: #e7e7f3;
+  --color-surface-container-highest: #e1e2ed;
+  --color-on-surface-variant: #434655;
+  --color-outline: #737686;
+  --color-outline-variant: #c3c6d7;
+
+  --color-inverse-surface: #2e3039;
+  --color-inverse-on-surface: #f0f0fb;
+
+  --color-surface-bright: #faf8ff;
+  --color-surface-dim: #d9d9e5;
+
+  /* ================= SPACING ================= */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+
+  --spacing-gutter: 24px;
+  --spacing-container-max: 1280px;
+
+  /* ================= RADIUS ================= */
+  --radius: 0.125rem;
+  --radius-lg: 0.25rem;
+  --radius-xl: 0.5rem;
+  --radius-full: 999px;
+
+  /* ================= FONTS ================= */
+  --font-sans: "Inter", sans-serif;
+  /* FONTS */
+  --font-headline: "Inter", sans-serif;
+  --font-body-lg: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+
+  /* ================= TYPOGRAPHY SCALE ================= */
+
+  --text-display-lg: 48px;
+  --text-display-lg--line-height: 56px;
+
+  --text-display-lg-mobile: 36px;
+  --text-display-lg-mobile--line-height: 44px;
+
+  --text-headline-lg: 32px;
+  --text-headline-lg--line-height: 40px;
+
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 32px;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+
+  --text-body-md: 16px;
+  --text-body-md--line-height: 24px;
+
+  --text-body-sm: 14px;
+  --text-body-sm--line-height: 20px;
+
+  --text-label-md: 14px;
+  --text-label-md--line-height: 20px;
+
+  --text-label-sm: 12px;
+  --text-label-sm--line-height: 16px;
+}
+
+/* =========================
+   BASE STYLES
+========================= */
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    @apply bg-background text-on-background;
+  }
+}
+
+/* =========================
+   TYPOGRAPHY UTILITIES
+========================= */
+
+@layer utilities {
+  .text-display-lg {
+    font-size: var(--text-display-lg);
+    line-height: var(--text-display-lg--line-height);
+    font-weight: 700;
+  }
+
+  .text-display-lg-mobile {
+    font-size: var(--text-display-lg-mobile);
+    line-height: var(--text-display-lg-mobile--line-height);
+    font-weight: 700;
+  }
+
+  .text-headline-lg {
+    font-size: var(--text-headline-lg);
+    line-height: var(--text-headline-lg--line-height);
+    font-weight: 700;
+  }
+
+  .text-headline-md {
+    font-size: var(--text-headline-md);
+    line-height: var(--text-headline-md--line-height);
+    font-weight: 600;
+  }
+
+  .text-body-lg {
+    font-size: var(--text-body-lg);
+    line-height: var(--text-body-lg--line-height);
+    font-weight: 400;
+  }
+
+  .text-body-md {
+    font-size: var(--text-body-md);
+    line-height: var(--text-body-md--line-height);
+    font-weight: 400;
+  }
+
+  .text-body-sm {
+    font-size: var(--text-body-sm);
+    line-height: var(--text-body-sm--line-height);
+    font-weight: 400;
+  }
+
+  .text-label-md {
+    font-size: var(--text-label-md);
+    line-height: var(--text-label-md--line-height);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .text-label-sm {
+    font-size: var(--text-label-sm);
+    line-height: var(--text-label-sm--line-height);
+    font-weight: 500;
+  }
+
+  /* CONTAINER */
+  .max-w-container-max {
+    max-width: var(--spacing-container-max);
+  }
+
+  /* BENTO GRID */
+  .bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 24px;
+  }
+
+  /* HERO GRADIENT */
+  .hero-gradient {
+    background: linear-gradient(135deg, #f3f3fe 0%, #ffffff 100%);
+  }
+}
+
+/* =========================
+   MATERIAL ICONS FIX
+========================= */
+
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.05);
+}
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #2563eb;
+  border-radius: 10px;
+}

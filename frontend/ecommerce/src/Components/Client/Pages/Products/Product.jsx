@@ -1,0 +1,116 @@
+import { useState } from "react";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCart } from "../../../../features/cart/cartSlice";
+import { useNavigate } from "react-router-dom";
+
+const Product = ({ product }) => {
+  const cartItems = useSelector((state) => state.cart.items);
+  const { isLoggedIn } = useSelector((state) => state.user);
+
+  const cartItem = cartItems.find((item) => item.product._id === product._id);
+  const qty = cartItem?.quantity || 0;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const addToCart = async () => {
+    try {
+      if (!isLoggedIn) {
+        alert("login First");
+        return navigate("/client/login");
+      }
+      await axios.post(
+        "http://localhost:5000/client/add-to-cart",
+        {
+          productId: product._id,
+        },
+        {
+          withCredentials: true,
+        },
+      );
+
+      dispatch(fetchCart());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const updateQty = async (type) => {
+    try {
+      await axios.post(
+        "http://localhost:5000/client/update-cart",
+        {
+          productId: product._id,
+          type,
+        },
+        {
+          withCredentials: true,
+        },
+      );
+
+      dispatch(fetchCart());
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return (
+    <div className="product-card bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col h-full">
+      {/* IMAGE */}
+      <img
+        onClick={() =>
+          navigate("/client/product-preview", {
+            state: { product },
+          })
+        }
+        src={product.image.url}
+        className="product-image w-full h-full object-cover transition-transform duration-500"
+      />
+
+      {/* start */}
+      <div className="p-md flex flex-col grow">
+        <p className="text-label-sm text-primary mb-1">{product.category}</p>
+        <h3 className="font-headline-md text-[18px] text-on-surface truncate mb-2">
+          {product.title}
+        </h3>
+        <span className="font-headline-md text-primary mb-md block">
+          ₹{product.price}
+        </span>
+        {/* ADD TO CART */}
+        {qty === 0 ? (
+          <button
+            onClick={addToCart}
+            className="mt-auto w-full flex items-center justify-center gap-sm bg-primary-container text-on-primary-container font-bold py-3 rounded-lg hover:bg-primary hover:text-on-primary transition-all active:scale-[0.98]"
+          >
+            <span className="material-symbols-outlined text-[20px]">
+              shopping_cart
+            </span>
+            Add to Cart
+          </button>
+        ) : (
+          <div className="flex items-center justify-between gap-sm mb-lg bg-secondary-container/30 p-2 rounded-lg">
+            <button
+              onClick={() => updateQty("dec")}
+              className="w-8 h-8 flex items-center justify-center rounded bg-inverse-surface text-inverse-on-surface hover:bg-primary transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px]">
+                remove
+              </span>
+            </button>
+            <span className="font-bold text-on-surface w-6 text-center">
+              {qty}
+            </span>
+            <button
+              onClick={() => updateQty("inc")}
+              className="w-8 h-8 flex items-center justify-center rounded bg-inverse-surface text-inverse-on-surface hover:bg-primary transition-colors"
+            >
+              <span className="material-symbols-outlined text-[18px]">add</span>
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default Product;

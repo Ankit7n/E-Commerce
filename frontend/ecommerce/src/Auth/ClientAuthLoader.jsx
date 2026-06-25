@@ -5,7 +5,8 @@ import { authFinished, loginSuccess } from "../features/auth/userSlice";
 
 import { NavLink } from "react-router-dom";
 import { fetchMyOrders } from "../features/order/OrderSlice";
-import { fetchCart } from "../features/cart/cartSlice";
+// import { fetchCart } from "../features/cart/cartSlice";
+import { fetchCart } from "../features/cart/CartSlice";
 const ClientAuthLoader = () => {
   const dispatch = useDispatch();
   useEffect(() => {

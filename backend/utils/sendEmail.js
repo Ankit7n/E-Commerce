@@ -1,41 +1,27 @@
 const nodemailer = require("nodemailer");
-const dns = require("dns");
-// const transporter = nodemailer.createTransport({
-//   host: "smtp.gmail.com",
-//   port: 587,
-//   secure: false,
-//   auth: {
-//     user: process.env.EMAIL,
-//     pass: process.env.EMAIL_PASSWORD,
-//   },
-//   connectionTimeout: 10000,
-// });
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT),
   secure: false,
   auth: {
-    user: process.env.EMAIL,
-    pass: process.env.EMAIL_PASSWORD,
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
   },
-  tls: {
-    rejectUnauthorized: false,
-  },
-  family: 4, // force IPv4
 });
+
+// run once
+transporter
+  .verify()
+  .then(() => console.log("SMTP ready"))
+  .catch((err) => console.log("SMTP error:", err));
 
 const sendEmail = async (email, otp) => {
   try {
-    console.log("Verifying SMTP...");
-
-    await transporter.verify();
-
-    console.log("SMTP ready");
     console.log("Sending email...");
 
     const result = await transporter.sendMail({
-      from: process.env.EMAIL,
+      from: `"Ecommerce App" <${process.env.SMTP_USER}>`,
       to: email,
       subject: "OTP Verification",
       html: `

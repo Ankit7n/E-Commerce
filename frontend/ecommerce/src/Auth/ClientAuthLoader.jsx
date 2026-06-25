@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { fetchCart } from "../features/cart/CartSlice";
 import { authFinished, loginSuccess } from "../features/auth/userSlice";
 
 import { NavLink } from "react-router-dom";
 import { fetchMyOrders } from "../features/order/OrderSlice";
+import { fetchCart } from "../features/cart/cartSlice";
 const ClientAuthLoader = () => {
   const dispatch = useDispatch();
   useEffect(() => {

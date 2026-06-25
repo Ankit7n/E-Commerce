@@ -8,11 +8,14 @@ export const fetchProducts = createAsyncThunk(
     try {
       const token = localStorage.getItem("token");
 
-      const res = await axios.get("http://localhost:5000/admin/getApi", {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const res = await axios.get(
+        "https://ecommerce-backend-u98m.onrender.com/admin/getApi",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       return res.data;
     } catch (err) {
@@ -29,7 +32,7 @@ export const fetchSingleProduct = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const res = await axios.get(
-        `http://localhost:5000/admin/getProduct/${id}`,
+        `https://ecommerce-backend-u98m.onrender.com/admin/getProduct/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -52,7 +55,7 @@ export const createProduct = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const res = await axios.post(
-        "http://localhost:5000/admin/api/createProducts",
+        "https://ecommerce-backend-u98m.onrender.com/admin/api/createProducts",
         formData,
         {
           headers: {
@@ -76,7 +79,7 @@ export const updateProduct = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const res = await axios.put(
-        `http://localhost:5000/admin/updateProduct/${id}`,
+        `https://ecommerce-backend-u98m.onrender.com/admin/updateProduct/${id}`,
         formData,
         {
           headers: {
@@ -100,7 +103,7 @@ export const deleteProduct = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const res = await axios.delete(
-        `http://localhost:5000/admin/deleteProduct/${id}`,
+        `https://ecommerce-backend-u98m.onrender.com/admin/deleteProduct/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

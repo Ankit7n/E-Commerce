@@ -42,7 +42,7 @@ const Register = () => {
         otp: userForm.otp,
       };
       const response = await axios.post(
-        "http://localhost:5000/client/verify-register-otp",
+        "https://ecommerce-backend-u98m.onrender.com/client/verify-register-otp",
         userData,
       );
       console.log("response", response.data);
@@ -94,7 +94,7 @@ const Register = () => {
         email,
       };
       const response = await axios.post(
-        "http://localhost:5000/client/send-register-otp",
+        "https://ecommerce-backend-u98m.onrender.com/client/send-register-otp",
         formData,
       );
       console.log(response.data);

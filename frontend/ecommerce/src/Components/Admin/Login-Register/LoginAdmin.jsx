@@ -27,7 +27,7 @@ const LoginAdmin = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/admin/login",
+        "https://ecommerce-backend-u98m.onrender.com/admin/login",
         formData,
       );
 

@@ -34,7 +34,7 @@ const ForgotPass = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/client/send-reset-otp",
+        "https://ecommerce-backend-u98m.onrender.com/client/send-reset-otp",
         {
           email: formData.email,
         },
@@ -67,7 +67,7 @@ const ForgotPass = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/client/verify-reset-otp",
+        "https://ecommerce-backend-u98m.onrender.com/client/verify-reset-otp",
         {
           email: formData.email,
           otp: formData.otp,

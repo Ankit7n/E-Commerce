@@ -24,7 +24,7 @@ const VerifyEmail = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/client/send-register-otp",
+        "https://ecommerce-backend-u98m.onrender.com/client/send-register-otp",
         formData,
       );
 

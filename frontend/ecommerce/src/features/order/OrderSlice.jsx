@@ -5,7 +5,7 @@ export const placeOrder = createAsyncThunk(
   "order/placeOrder",
   async (_, thunkAPI) => {
     const res = await axios.post(
-      "http://localhost:5000/client/place-order",
+      "https://ecommerce-backend-u98m.onrender.com/client/place-order",
       {},
       {
         withCredentials: true,
@@ -19,9 +19,12 @@ export const placeOrder = createAsyncThunk(
 export const fetchMyOrders = createAsyncThunk(
   "order/fetchMyOrders",
   async () => {
-    const res = await axios.get("http://localhost:5000/client/my-orders", {
-      withCredentials: true,
-    });
+    const res = await axios.get(
+      "https://ecommerce-backend-u98m.onrender.com/client/my-orders",
+      {
+        withCredentials: true,
+      },
+    );
 
     return res.data.orders;
   },

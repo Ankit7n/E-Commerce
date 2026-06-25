@@ -19,7 +19,7 @@ const ProductPreview = () => {
         return navigate("/client/login");
       }
       const res = await axios.post(
-        "http://localhost:5000/client/add-to-cart",
+        "https://ecommerce-backend-u98m.onrender.com/client/add-to-cart",
         {
           productId: product._id,
         },
@@ -37,7 +37,7 @@ const ProductPreview = () => {
   const updateQty = async (type) => {
     try {
       await axios.post(
-        "http://localhost:5000/client/update-cart",
+        "https://ecommerce-backend-u98m.onrender.com/client/update-cart",
         {
           productId: product._id,
           type,

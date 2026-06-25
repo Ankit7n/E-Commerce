@@ -22,7 +22,7 @@ const Header = () => {
   const handleLogout = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:5000/client/logout",
+        "https://ecommerce-backend-u98m.onrender.com/client/logout",
         {},
         {
           withCredentials: true,

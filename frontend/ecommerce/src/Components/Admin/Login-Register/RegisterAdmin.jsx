@@ -26,7 +26,7 @@ const RegisterAdmin = () => {
     setLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:5000/admin/register",
+        "https://ecommerce-backend-u98m.onrender.com/admin/register",
         formData,
       );
 

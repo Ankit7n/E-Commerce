@@ -23,11 +23,14 @@ const AdminBootstrap = () => {
           return;
         }
 
-        const res = await axios.get("http://localhost:5000/admin/verify", {
-          headers: {
-            Authorization: `Bearer ${token}`,
+        const res = await axios.get(
+          "https://ecommerce-backend-u98m.onrender.com/admin/verify",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
           },
-        });
+        );
 
         if (res.data.status) {
           dispatch(

@@ -5,7 +5,7 @@ export const fetchProduct = createAsyncThunk(
   "products/fetch",
   async ({ page, category }) => {
     const res = await axios.get(
-      `http://localhost:5000/client/getProducts?page=${page}&limit=10&category=${category || ""}`,
+      `https://ecommerce-backend-u98m.onrender.com/client/getProducts?page=${page}&limit=10&category=${category || ""}`,
     );
 
     return res.data;
@@ -15,7 +15,9 @@ export const fetchProduct = createAsyncThunk(
 export const fetchCategories = createAsyncThunk(
   "products/categories",
   async () => {
-    const res = await axios.get("http://localhost:5000/client/categories");
+    const res = await axios.get(
+      "https://ecommerce-backend-u98m.onrender.com/client/categories",
+    );
     return res.data.categories;
   },
 );

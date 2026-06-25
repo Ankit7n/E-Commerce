@@ -34,7 +34,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/client/login",
+        "https://ecommerce-backend-u98m.onrender.com/client/login",
         formData,
         {
           withCredentials: true,

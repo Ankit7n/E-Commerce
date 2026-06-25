@@ -7,11 +7,14 @@ export const fetchOrders = createAsyncThunk(
     try {
       const token = getState().admin.token;
 
-      const res = await axios.get("http://localhost:5000/admin/all-orders", {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const res = await axios.get(
+        "https://ecommerce-backend-u98m.onrender.com/admin/all-orders",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       return res.data.orders;
     } catch (err) {

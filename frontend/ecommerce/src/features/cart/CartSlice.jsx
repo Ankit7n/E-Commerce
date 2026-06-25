@@ -2,16 +2,19 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchCart = createAsyncThunk("cart/fetch", async () => {
-  const res = await axios.get("http://localhost:5000/client/get-cart", {
-    withCredentials: true,
-  });
+  const res = await axios.get(
+    "https://ecommerce-backend-u98m.onrender.com/client/get-cart",
+    {
+      withCredentials: true,
+    },
+  );
 
   return res.data.cartItems;
 });
 
 export const deleteAll = createAsyncThunk("cart/clearAll", async () => {
   const res = await axios.post(
-    "http://localhost:5000/client/clear-cart",
+    "https://ecommerce-backend-u98m.onrender.com/client/clear-cart",
     {},
     { withCredentials: true },
   );

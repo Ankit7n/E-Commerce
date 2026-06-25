@@ -10,9 +10,12 @@ const ClientAuthLoader = () => {
   useEffect(() => {
     const loadUser = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/client/me", {
-          withCredentials: true,
-        });
+        const res = await axios.get(
+          "https://ecommerce-backend-u98m.onrender.com/client/me",
+          {
+            withCredentials: true,
+          },
+        );
 
         if (res.data.success) {
           dispatch(loginSuccess(res.data.user));

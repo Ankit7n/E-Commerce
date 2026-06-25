@@ -9,7 +9,7 @@ const Cart = ({ item }) => {
   const updateQty = async (type) => {
     try {
       await axios.post(
-        "http://localhost:5000/client/update-cart",
+        "https://ecommerce-backend-u98m.onrender.com/client/update-cart",
         {
           productId: item.product._id,
           type,
@@ -28,7 +28,7 @@ const Cart = ({ item }) => {
   const removeItem = async () => {
     try {
       await axios.post(
-        "http://localhost:5000/client/remove-cart-item",
+        "https://ecommerce-backend-u98m.onrender.com/client/remove-cart-item",
         {
           cartId: item._id,
         },

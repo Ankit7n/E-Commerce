@@ -66,3 +66,4 @@ const sendEmail = async (email, otp) => {
     console.log("Email error:", error);
   }
 };
+module.exports = sendEmail;

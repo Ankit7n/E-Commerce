@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { fetchCart } from "../../../../features/cart/cartSlice";
+import { fetchCart } from "../../../../features/cart/CartSlice";
 
 const Cart = ({ item }) => {
   console.log("one item", item);

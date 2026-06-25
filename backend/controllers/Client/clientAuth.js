@@ -230,8 +230,8 @@ exports.loginUser = async (req, res) => {
 
     res.cookie("userToken", token, {
       httpOnly: true,
-      sameSite: "lax",
-      secure: false, // true in production HTTPS
+      sameSite: "none",
+      secure: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
@@ -255,7 +255,11 @@ exports.loginUser = async (req, res) => {
 // Logout User
 
 exports.logoutUser = (req, res) => {
-  res.clearCookie("userToken");
+  res.clearCookie("userToken", {
+    httpOnly: true,
+    sameSite: "none",
+    secure: true,
+  });
 
   res.status(200).json({
     success: true,

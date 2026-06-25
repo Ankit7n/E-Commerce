@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteAll, fetchCart } from "../../../../features/cart/cartSlice";
+import { deleteAll, fetchCart } from "../../../../features/cart/CartSlice";
 import Cart from "./Cart";
 import { Navigate, useNavigate } from "react-router-dom";
 import CartEmpty from "./CartEmpty";

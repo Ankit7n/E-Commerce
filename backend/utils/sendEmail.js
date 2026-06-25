@@ -55,7 +55,7 @@ const sendEmail = async (email, otp) => {
 
     let sendSmtpEmail = {
       to: [{ email }],
-      sender: { email: "yourverifiedemail@gmail.com", name: "Your App" },
+      sender: { email: "ankitrawat7n@gmail.com", name: "OTP System" },
       subject: "Your OTP Code",
       htmlContent: `<h2>Your OTP is ${otp}</h2>`,
     };

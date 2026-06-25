@@ -4,7 +4,7 @@ import {
   fetchMyOrders,
   placeOrder,
 } from "../../../../features/order/OrderSlice";
-import { fetchCart } from "../../../../features/cart/cartSlice";
+import { fetchCart } from "../../../../features/cart/CartSlice";
 
 const CompletePurchase = () => {
   const location = useLocation();

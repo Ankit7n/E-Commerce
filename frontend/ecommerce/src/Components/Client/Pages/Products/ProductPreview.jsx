@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { fetchCart } from "../../../../features/cart/cartSlice";
+import { fetchCart } from "../../../../features/cart/CartSlice";
 
 const ProductPreview = () => {
   const location = useLocation();

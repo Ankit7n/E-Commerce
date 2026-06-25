@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginSuccess } from "../../../../features/auth/userSlice";
-import { fetchCart } from "../../../../features/cart/cartSlice";
+import { fetchCart } from "../../../../features/cart/CartSlice";
 
 const Login = () => {
   const navigate = useNavigate();

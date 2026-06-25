@@ -1,37 +1,25 @@
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 
-// const transporter = nodemailer.createTransport({
-//   service: "gmail",
-//   auth: {
-//     user: process.env.EMAIL,
-//     pass: process.env.EMAIL_PASSWORD,
-//   },
-// });
-
-const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL,
-    pass: process.env.EMAIL_PASSWORD,
-  },
-  connectionTimeout: 10000,
-});
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const sendEmail = async (email, otp) => {
-  console.log("EMAIL:", process.env.EMAIL);
-  console.log("PASS EXISTS:", !!process.env.EMAIL_PASSWORD);
-  await transporter.sendMail({
-    from: process.env.EMAIL,
-    to: email,
-    subject: "OTP Verification",
-    html: `
-      <h2>Your OTP Code</h2>
-      <h1>${otp}</h1>
-      <p>OTP valid htmlFor 5 minutes.</p>
-    `,
-  });
+  try {
+    const data = await resend.emails.send({
+      from: "onboarding@resend.dev",
+      to: email,
+      subject: "OTP Verification",
+      html: `
+        <h2>Your OTP Code</h2>
+        <h1>${otp}</h1>
+        <p>Valid for 5 minutes.</p>
+      `,
+    });
+
+    console.log("Email sent:", data);
+  } catch (error) {
+    console.log("Email error:", error);
+    throw error;
+  }
 };
 
 module.exports = sendEmail;

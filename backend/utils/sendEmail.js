@@ -1,13 +1,5 @@
 const nodemailer = require("nodemailer");
 
-// const transporter = nodemailer.createTransport({
-//   service: "gmail",
-//   auth: {
-//     user: process.env.EMAIL,
-//     pass: process.env.EMAIL_PASSWORD,
-//   },
-// });
-
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
@@ -20,18 +12,30 @@ const transporter = nodemailer.createTransport({
 });
 
 const sendEmail = async (email, otp) => {
-  console.log("EMAIL:", process.env.EMAIL);
-  console.log("PASS EXISTS:", !!process.env.EMAIL_PASSWORD);
-  await transporter.sendMail({
-    from: process.env.EMAIL,
-    to: email,
-    subject: "OTP Verification",
-    html: `
-      <h2>Your OTP Code</h2>
-      <h1>${otp}</h1>
-      <p>OTP valid htmlFor 5 minutes.</p>
-    `,
-  });
+  try {
+    console.log("Verifying SMTP...");
+
+    await transporter.verify();
+
+    console.log("SMTP ready");
+    console.log("Sending email...");
+
+    const result = await transporter.sendMail({
+      from: process.env.EMAIL,
+      to: email,
+      subject: "OTP Verification",
+      html: `
+        <h2>Your OTP Code</h2>
+        <h1>${otp}</h1>
+        <p>OTP valid for 5 minutes.</p>
+      `,
+    });
+
+    console.log("Email sent:", result.messageId);
+  } catch (error) {
+    console.error("Nodemailer error:", error);
+    throw error;
+  }
 };
 
 module.exports = sendEmail;

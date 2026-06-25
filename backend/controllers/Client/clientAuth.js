@@ -37,6 +37,7 @@ exports.sendRegisterOTP = async (req, res) => {
     });
 
     await sendEmail(email, otp);
+    console.log("sendEmail completed");
 
     res.status(200).json({
       success: true,

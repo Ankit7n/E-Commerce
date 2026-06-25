@@ -1,4 +1,15 @@
 const nodemailer = require("nodemailer");
+const dns = require("dns");
+// const transporter = nodemailer.createTransport({
+//   host: "smtp.gmail.com",
+//   port: 587,
+//   secure: false,
+//   auth: {
+//     user: process.env.EMAIL,
+//     pass: process.env.EMAIL_PASSWORD,
+//   },
+//   connectionTimeout: 10000,
+// });
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -8,7 +19,10 @@ const transporter = nodemailer.createTransport({
     user: process.env.EMAIL,
     pass: process.env.EMAIL_PASSWORD,
   },
-  connectionTimeout: 10000,
+  tls: {
+    rejectUnauthorized: false,
+  },
+  family: 4, // force IPv4
 });
 
 const sendEmail = async (email, otp) => {

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchCart } from "../../../../features/cart/cartSlice";
+import { fetchCart } from "../../../../features/cart/CartSlice";
 import { useNavigate } from "react-router-dom";
 
 const Product = ({ product }) => {

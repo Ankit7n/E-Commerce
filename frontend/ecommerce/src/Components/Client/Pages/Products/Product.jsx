@@ -104,7 +104,7 @@ const Product = ({ product }) => {
             )}
           </button>
         ) : (
-          <div className="flex items-center justify-between gap-sm mb-lg bg-secondary-container/30 p-2 rounded-lg">
+          <div className="flex items-center justify-between gap-sm mb-lg bg-secondary-container p-2 rounded-lg">
             <button
               onClick={() => updateQty("dec")}
               disabled={loading && loadingAction === "dec"}

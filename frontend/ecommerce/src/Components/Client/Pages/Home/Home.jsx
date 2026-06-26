@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const store = useSelector((store) => store.product);
+  const navigate = useNavigate();
 
   return (
     <main className="bg-background text-on-background font-body-md selection:bg-primary selection:text-white">
@@ -20,7 +22,10 @@ const Home = () => {
               collections, lightning-fast delivery, and quality that speaks
               htmlFor itself.
             </p>
-            <div className="flex flex-col sm:flex-row gap-md justify-center lg:justify-start">
+            <div
+              onClick={() => navigate("/client/shop")}
+              className="flex flex-col sm:flex-row gap-md justify-center lg:justify-start"
+            >
               <button className="bg-cta-orange text-white px-xl py-md rounded-lg font-headline-md font-bold shadow-lg hover:scale-105 transition-transform active:scale-95">
                 Shop Now
               </button>
@@ -144,6 +149,7 @@ const Home = () => {
             <div className="group bg-surface rounded-xl p-4 shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
               <div className="relative aspect-square overflow-hidden rounded-lg mb-md bg-surface-container">
                 <img
+                  onClick={() => navigate("/client/shop")}
                   alt="Product"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   data-alt="A pair of high-fidelity wireless headphones in deep matte navy blue, positioned elegantly on a minimalist stand. The lighting is dramatic, with side-lighting that defines the contours and texture of the ear cups. The background is a clean, dark surface that emphasizes the professional and premium nature of the product."
@@ -196,22 +202,13 @@ const Home = () => {
                   (128)
                 </span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-headline-md font-bold text-primary">
-                  $299.00
-                </span>
-                <button className="p-2 bg-surface-container rounded-full hover:bg-primary hover:text-white transition-all">
-                  <span className="material-symbols-outlined">
-                    shopping_cart
-                  </span>
-                </button>
-              </div>
             </div>
             {/* Repeated 7 more times htmlFor 8 products total */}
             {/*  Product 2  */}
             <div className="group bg-surface rounded-xl p-4 shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
               <div className="relative aspect-square overflow-hidden rounded-lg mb-md bg-surface-container">
                 <img
+                  onClick={() => navigate("/client/shop")}
                   alt="Product"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   data-alt="A pair of vibrant orange performance running shoes shown mid-air against a clean white background. The lighting is bright and high-key, highlighting the intricate mesh texture and aerodynamic silhouette of the footwear. The overall mood is energetic and focused on high performance and athletic excellence."
@@ -261,21 +258,12 @@ const Home = () => {
                   (254)
                 </span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-headline-md font-bold text-primary">
-                  $145.00
-                </span>
-                <button className="p-2 bg-surface-container rounded-full hover:bg-primary hover:text-white transition-all">
-                  <span className="material-symbols-outlined">
-                    shopping_cart
-                  </span>
-                </button>
-              </div>
             </div>
             {/* <!-- Product 3 --> */}
             <div className="group bg-surface rounded-xl p-4 shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
               <div className="relative aspect-square overflow-hidden rounded-lg mb-md bg-surface-container">
                 <img
+                  onClick={() => navigate("/client/shop")}
                   alt="Product"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   data-alt="A minimalist white ceramic table lamp with a soft glow, placed on a light oak nightstand next to a neatly stacked book. The background is a soft-focus bedroom wall in a warm off-white tone. The lighting is warm and cozy, creating a peaceful and serene evening atmosphere in a modern home."
@@ -328,21 +316,12 @@ const Home = () => {
                   (89)
                 </span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-headline-md font-bold text-primary">
-                  $79.00
-                </span>
-                <button className="p-2 bg-surface-container rounded-full hover:bg-primary hover:text-white transition-all">
-                  <span className="material-symbols-outlined">
-                    shopping_cart
-                  </span>
-                </button>
-              </div>
             </div>
             {/* <!-- Product 4 --> */}
             <div className="group bg-surface rounded-xl p-4 shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
               <div className="relative aspect-square overflow-hidden rounded-lg mb-md bg-surface-container">
                 <img
+                  onClick={() => navigate("/client/shop")}
                   alt="Product"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   data-alt="A vintage-style instant camera in a soft pastel yellow color, sitting on a weathered wooden table outdoors. The morning sun casts long, gentle shadows and highlights the retro design elements. The atmosphere is nostalgic and artistic, emphasizing creative expression and a timeless aesthetic."
@@ -392,21 +371,12 @@ const Home = () => {
                   (42)
                 </span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-headline-md font-bold text-primary">
-                  $120.00
-                </span>
-                <button className="p-2 bg-surface-container rounded-full hover:bg-primary hover:text-white transition-all">
-                  <span className="material-symbols-outlined">
-                    shopping_cart
-                  </span>
-                </button>
-              </div>
             </div>
             {/* <!-- Row 2 --> */}
             <div className="group bg-surface rounded-xl p-4 shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
               <div className="relative aspect-square overflow-hidden rounded-lg mb-md bg-surface-container">
                 <img
+                  onClick={() => navigate("/client/shop")}
                   alt="Product"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   data-alt="A designer leather backpack in rich cognac brown, hanging on a white wall hook in a minimalist hallway. The lighting is soft and even, highlighting the premium stitching and high-quality grain of the leather. The environment is clean and organized, conveying a sense of professional urban style."
@@ -456,20 +426,11 @@ const Home = () => {
                   (312)
                 </span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-headline-md font-bold text-primary">
-                  $180.00
-                </span>
-                <button className="p-2 bg-surface-container rounded-full hover:bg-primary hover:text-white transition-all">
-                  <span className="material-symbols-outlined">
-                    shopping_cart
-                  </span>
-                </button>
-              </div>
             </div>
             <div className="group bg-surface rounded-xl p-4 shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
               <div className="relative aspect-square overflow-hidden rounded-lg mb-md bg-surface-container">
                 <img
+                  onClick={() => navigate("/client/shop")}
                   alt="Product"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   data-alt="A pair of sleek aviator sunglasses with polarized dark lenses, resting on a polished chrome surface. The lighting creates sharp, clean reflections and highlights the metallic frame. The mood is sophisticated and modern, reflecting a high-end luxury lifestyle and precision engineering."
@@ -519,20 +480,11 @@ const Home = () => {
                   (67)
                 </span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-headline-md font-bold text-primary">
-                  $195.00
-                </span>
-                <button className="p-2 bg-surface-container rounded-full hover:bg-primary hover:text-white transition-all">
-                  <span className="material-symbols-outlined">
-                    shopping_cart
-                  </span>
-                </button>
-              </div>
             </div>
             <div className="group bg-surface rounded-xl p-4 shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
               <div className="relative aspect-square overflow-hidden rounded-lg mb-md bg-surface-container">
                 <img
+                  onClick={() => navigate("/client/shop")}
                   alt="Product"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   data-alt="A pair of high-performance wireless earbuds in a sleek white charging case, shown on a neutral textured background. The lighting is soft and professional, with gentle highlights on the smooth plastic surfaces. The overall aesthetic is clean, minimalist, and focused on modern technology and portability."
@@ -582,20 +534,11 @@ const Home = () => {
                   (412)
                 </span>
               </div>
-              <div className="flex justify-between items-center">
-                <span className="text-headline-md font-bold text-primary">
-                  $159.00
-                </span>
-                <button className="p-2 bg-surface-container rounded-full hover:bg-primary hover:text-white transition-all">
-                  <span className="material-symbols-outlined">
-                    shopping_cart
-                  </span>
-                </button>
-              </div>
             </div>
             <div className="group bg-surface rounded-xl p-4 shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
               <div className="relative aspect-square overflow-hidden rounded-lg mb-md bg-surface-container">
                 <img
+                  onClick={() => navigate("/client/shop")}
                   alt="Product"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   data-alt="A modern smartwatch with a sleek black band and a high-resolution glowing digital display showing fitness metrics. The watch is placed on a dark, reflective granite surface under soft studio lighting. The scene represents a professional, health-conscious, and technology-driven lifestyle."
@@ -644,16 +587,6 @@ const Home = () => {
                 <span className="text-body-sm text-on-surface-variant ml-1">
                   (188)
                 </span>
-              </div>
-              <div className="flex justify-between items-center">
-                <span className="text-headline-md font-bold text-primary">
-                  $249.00
-                </span>
-                <button className="p-2 bg-surface-container rounded-full hover:bg-primary hover:text-white transition-all">
-                  <span className="material-symbols-outlined">
-                    shopping_cart
-                  </span>
-                </button>
               </div>
             </div>
           </div>

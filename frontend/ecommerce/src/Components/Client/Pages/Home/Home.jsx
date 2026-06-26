@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Home = () => {
   const store = useSelector((store) => store.product);
@@ -72,13 +72,13 @@ const Home = () => {
               Discover our expertly curated selections.
             </p>
           </div>
-          <a
+          <NavLink
+            to="/client/shop"
             className="text-primary font-bold flex items-center gap-2 hover:underline"
-            href="#"
           >
             View All{" "}
             <span className="material-symbols-outlined">arrow_forward</span>
-          </a>
+          </NavLink>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-lg h-[600px]">
           <div className="group relative md:col-span-2 overflow-hidden rounded-xl bg-surface-container">

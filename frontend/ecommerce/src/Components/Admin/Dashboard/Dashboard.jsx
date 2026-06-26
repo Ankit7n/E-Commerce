@@ -149,7 +149,7 @@ const Dashboard = () => {
                                 }),
                               )
                             }
-                            className="px-sm py-1 text-[12px] font-bold uppercase bg-transparent outline-none"
+                            className="px-sm py-1 text-[12px] font-bold uppercase bg-transparent outline-none cursor-pointer"
                           >
                             <option value="Pending">Pending</option>
                             <option value="Processing">Processing</option>

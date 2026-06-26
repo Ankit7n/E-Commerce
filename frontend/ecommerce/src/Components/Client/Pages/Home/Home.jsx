@@ -147,7 +147,7 @@ const Home = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-lg">
             {/* Product Cards  */}
             <div className="group bg-surface rounded-xl p-4 shadow-sm hover:shadow-lg transition-all border border-transparent hover:border-primary/20">
-              <div className="relative aspect-square overflow-hidden rounded-lg mb-md bg-surface-container">
+              <div className="relative aspect-square overflow-hidden rounded-lg mb-md bg-surface-container cursor-pointer">
                 <img
                   onClick={() => navigate("/client/shop")}
                   alt="Product"

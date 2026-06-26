@@ -103,7 +103,7 @@ const CompletePurchase = () => {
                 </div>
                 <button
                   onClick={handleCompletePurchase}
-                  className="w-full bg-cta-orange text-white py-lg rounded-xl font-headline-md shadow-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center space-x-md"
+                  className="w-full bg-cta-orange text-white py-lg rounded-xl font-headline-md shadow-lg hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center space-x-md cursor-pointer"
                 >
                   <span className="">Complete Purchase</span>
                   <span className="material-symbols-outlined">

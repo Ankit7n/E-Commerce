@@ -131,7 +131,7 @@ const Header = () => {
                 <NavLink
                   to="/client/login"
                   className={({ isActive }) =>
-                    `flex flex-col items-center gap-2 px-4 py-2 ${
+                    `flex flex-col items-center gap-2 px-4 py-2 cursor-pointer ${
                       isActive
                         ? "text-primary font-bold"
                         : "text-on-surface-variant font-medium"
@@ -146,7 +146,7 @@ const Header = () => {
                 {/* User Info */}
                 <div
                   onClick={() => navigate("/client/profile")}
-                  className="flex items-center gap-2"
+                  className="flex items-center gap-2 cursor-pointer"
                 >
                   <span className="material-symbols-outlined text-primary">
                     account_circle
@@ -158,7 +158,7 @@ const Header = () => {
                 {/* Logout */}
                 <button
                   onClick={handleLogout}
-                  className="px-4 py-2 rounded-full bg-red-500 text-white font-medium hover:opacity-90 active:scale-95 transition-all"
+                  className="px-4 py-2 rounded-full bg-red-500 text-white font-medium hover:opacity-90 active:scale-95 transition-all cursor-pointer"
                 >
                   Logout
                 </button>
@@ -185,7 +185,7 @@ const Header = () => {
             {/* Admin Portal */}
             <button
               onClick={() => navigate("/admin/dashboard")}
-              className="bg-primary text-on-primary px-2 py-2 rounded-full font-bold shadow-md hover:shadow-lg active:scale-95 transition-all"
+              className="bg-primary text-on-primary px-2 py-2 rounded-full font-bold shadow-md hover:shadow-lg active:scale-95 transition-all cursor-pointer"
             >
               Admin Portal
             </button>

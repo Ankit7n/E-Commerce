@@ -118,7 +118,7 @@ const Carts = () => {
                     state: { items, finalPrice, isShipping, totalPrice, GST },
                   })
                 }
-                className="w-full bg-primary-container text-white py-md rounded-xl font-headline-md shadow-lg shadow-primary-container/20 hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-sm"
+                className="w-full bg-primary-container text-white py-md rounded-xl font-headline-md shadow-lg shadow-primary-container/20 hover:brightness-110 active:scale-[0.98] transition-all flex items-center justify-center gap-sm cursor-pointer"
               >
                 Proceed to Checkout
                 <span className="material-symbols-outlined">arrow_forward</span>

@@ -68,7 +68,7 @@ const Cart = ({ item }) => {
           </h3>
 
           <button
-            className="text-on-surface-variant hover:text-error transition-colors"
+            className="text-on-surface-variant hover:text-error transition-colors cursor-pointer"
             onClick={removeItem}
           >
             <span className="material-symbols-outlined">delete</span>
@@ -85,7 +85,7 @@ const Cart = ({ item }) => {
             <button
               onClick={() => updateQty("dec")}
               disabled={loading && loadingAction === "dec"}
-              className="px-md py-xs hover:bg-surface-variant transition-colors active:bg-outline-variant"
+              className="px-md py-xs hover:bg-surface-variant transition-colors active:bg-outline-variant cursor-pointer"
             >
               -
             </button>
@@ -93,7 +93,7 @@ const Cart = ({ item }) => {
             <button
               onClick={() => updateQty("inc")}
               disabled={loading && loadingAction === "dec"}
-              className="px-md py-xs hover:bg-surface-variant transition-colors active:bg-outline-variant"
+              className="px-md py-xs hover:bg-surface-variant transition-colors active:bg-outline-variant cursor-pointer"
             >
               +
             </button>

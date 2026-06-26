@@ -90,7 +90,7 @@ const Product = ({ product }) => {
           <button
             onClick={addToCart}
             disabled={loading && loadingAction === "add"}
-            className="grow bg-primary hover:bg-primary-container text-white font-black text-body-lg h-14 rounded-lg shadow-lg shadow-primary/20 transition-all active:scale-95 flex items-center justify-center gap-sm"
+            className="grow bg-primary hover:bg-primary-container text-white font-black text-body-lg h-14 rounded-lg shadow-lg shadow-primary/20 transition-all active:scale-95 flex items-center justify-center gap-sm cursor-pointer"
           >
             {loading && loadingAction === "add" ? (
               <span className="animate-spin border-2 border-white border-t-transparent rounded-full w-4 h-4"></span>
@@ -108,7 +108,7 @@ const Product = ({ product }) => {
             <button
               onClick={() => updateQty("dec")}
               disabled={loading && loadingAction === "dec"}
-              className="px-md hover:bg-surface-container-high transition-colors h-full flex items-center justify-center"
+              className="px-md hover:bg-surface-container-high transition-colors h-full flex items-center justify-center cursor-pointer"
             >
               <span className="material-symbols-outlined text">remove</span>
             </button>
@@ -118,7 +118,7 @@ const Product = ({ product }) => {
             <button
               onClick={() => updateQty("inc")}
               disabled={loading && loadingAction === "inc"}
-              className="px-md hover:bg-surface-container-high transition-colors h-full flex items-center justify-center"
+              className="px-md hover:bg-surface-container-high transition-colors h-full flex items-center justify-center cursor-pointer"
             >
               <span className="material-symbols-outlined text">add</span>
             </button>

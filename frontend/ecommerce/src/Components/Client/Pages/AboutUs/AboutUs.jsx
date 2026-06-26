@@ -11,7 +11,7 @@ const AboutUs = () => {
             <h1 className="text-display-lg-mobile md:text-display-lg font-display-lg leading-tight text-primary">
               Pioneering the Future <br /> of Digital Trade.
             </h1>
-            <p className="text-body-lg font-body-lg text-secondary max-w-lg">
+            <p className="text-body-lg font-body-lg text-secondary">
               Modern Commerce is a high-performance ecosystem dedicated to
               bringing curated, high-quality products directly to your doorstep
               with efficiency and style.
@@ -131,7 +131,7 @@ const AboutUs = () => {
           <h2 className="text-headline-lg font-headline-lg text-on-background mb-sm">
             Guided by Core Values
           </h2>
-          <p className="text-body-md font-body-md text-secondary max-w-2xl mx-auto">
+          <p className="text-body-md font-body-md text-secondary  mx-auto">
             Our identity is built on a foundation of three fundamental pillars
             that drive every decision we make as a company.
           </p>
@@ -224,7 +224,7 @@ const AboutUs = () => {
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWIsqhBmB37k7HuQjYbE-NBwoFwlsCaSwxblzOqwu_qRhgDAy25clcL1mk0fHcTAtGbxMWR91EwfzBBGZ7NvlNZAZu9XIdd2PoQJ-YH-SpNHBg4dpMBIolq-et1zuOChHyKH6eIU8b8JDgW9HsUvfLd_05JToe_O3U9o9GjNxIktfPNZJvLJmfY_73AQ7VZa6dx1LXGXyATSWW4kkifZNqDF9-zEist6I0ZmJrFACvytuzzcdWACt9e2r58vJ7MFDe3KkdrO01VR7a"
             />
           </div>
-          <div className="relative z-10 flex flex-col items-center text-center space-y-lg max-w-2xl mx-auto">
+          <div className="relative z-10 flex flex-col items-center text-center space-y-lg mx-auto">
             <h2 className="text-headline-lg font-headline-lg text-white">
               Join the Community
             </h2>

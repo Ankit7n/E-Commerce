@@ -4,7 +4,7 @@ const ContactUs = () => {
       {/* <!-- Hero Section --> */}
       <section className="relative bg-surface-container-low py-2xl">
         <div className="max-w-container-max mx-auto px-lg">
-          <div className="max-w-2xl">
+          <div className="">
             <span className="inline-block px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm mb-md">
               GET IN TOUCH
             </span>

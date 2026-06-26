@@ -61,9 +61,6 @@ const Dashboard = () => {
             <h4 className="font-headline-md text-headline-md text-on-surface">
               Recent Orders
             </h4>
-            <button className="text-primary font-bold text-label-md hover:underline">
-              View All Orders
-            </button>
           </div>
           <div className="overflow-x-auto">
             <table className="w-full text-left">
@@ -83,9 +80,6 @@ const Dashboard = () => {
                   </th>
                   <th className="px-lg py-md font-label-md text-label-md">
                     Status
-                  </th>
-                  <th className="px-lg py-md font-label-md text-label-md text-right">
-                    Action
                   </th>
                 </tr>
               </thead>
@@ -162,13 +156,6 @@ const Dashboard = () => {
                             <option value="Delivered">Delivered</option>
                           </select>
                         </div>
-                      </td>
-
-                      {/* Action */}
-                      <td className="px-lg py-md text-right">
-                        <span className="material-symbols-outlined cursor-pointer hover:text-primary">
-                          chevron_right
-                        </span>
                       </td>
                     </tr>
                   ))

@@ -94,9 +94,6 @@ const ClientProfile = () => {
               <h2 className="font-headline-md text-headline-md text-on-surface">
                 Recent Orders
               </h2>
-              <button className="text-primary font-label-md hover:underline">
-                View All Orders
-              </button>
             </div>
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
@@ -113,9 +110,6 @@ const ClientProfile = () => {
                     </th>
                     <th className="pb-md font-label-sm text-on-surface-variant uppercase tracking-wider text-right">
                       Total
-                    </th>
-                    <th className="pb-md font-label-sm text-on-surface-variant uppercase tracking-wider text-right">
-                      Action
                     </th>
                   </tr>
                 </thead>
@@ -160,15 +154,6 @@ const ClientProfile = () => {
 
                         <td className="py-md text-right font-bold text-on-surface">
                           ₹{order.totalPrice}
-                        </td>
-
-                        <td className="py-md text-right">
-                          <button className="text-primary font-label-md hover:underline inline-flex items-center gap-xs">
-                            View Details
-                            <span className="material-symbols-outlined text-[16px]">
-                              chevron_right
-                            </span>
-                          </button>
                         </td>
                       </tr>
                     ))

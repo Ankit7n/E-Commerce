@@ -2,7 +2,8 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <main className="bg-background text-on-background font-body-md selection:bg-primary selection:text-white">
+    <main className=" fixed bottom-0 left-0 w-full z-50 bg-background text-on-background font-body-md selection:bg-primary selection:text-white">
+      {/* <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 md:hidden bg-surface dark:bg-inverse-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl border-t border-outline-variant"></nav> */}
       {/* <!-- Footer --> */}
       <footer className="bg-inverse-surface dark:bg-surface-container-lowest text-inverse-on-surface dark:text-on-surface w-full py-2xl px-gutter mx-auto grid grid-cols-1 md:grid-cols-4 gap-lg">
         <div className="flex flex-col gap-md">
@@ -160,7 +161,7 @@ const Footer = () => {
       </footer>
       {/* <!-- BottomNavBar (Mobile Only) --> */}
       <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 md:hidden bg-surface dark:bg-inverse-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl border-t border-outline-variant">
-        <NavLink
+        {/* <NavLink
           to="/"
           className={({ isActive }) =>
             isActive
@@ -169,7 +170,7 @@ const Footer = () => {
           }
         >
           Home
-        </NavLink>
+        </NavLink> */}
         <NavLink
           to="/"
           className="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 active:scale-90 transition-transform duration-150"

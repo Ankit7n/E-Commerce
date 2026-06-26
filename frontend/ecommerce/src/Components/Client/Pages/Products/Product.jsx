@@ -104,7 +104,7 @@ const Product = ({ product }) => {
             )}
           </button>
         ) : (
-          <div className="flex items-center justify-between gap-sm mb-lg bg-secondary-container/30 p-2 rounded-lg">
+          <div className="flex items-center border border-outline-variant rounded-lg overflow-hidden bg-surface-container-low h-14">
             <button
               onClick={() => updateQty("dec")}
               disabled={loading && loadingAction === "dec"}
@@ -112,13 +112,13 @@ const Product = ({ product }) => {
             >
               <span className="material-symbols-outlined ">remove</span>
             </button>
-            <span className="font-bold text-on-surface w-6 text-center">
+            <span className="px-md font-bold text-body-lg w-12 text-center">
               {qty}
             </span>
             <button
               onClick={() => updateQty("inc")}
               disabled={loading && loadingAction === "inc"}
-              className="w-8 h-8 flex items-center justify-center rounded bg-inverse-surface disabled:opacity-50"
+              className="px-md hover:bg-surface-container-high transition-colors h-full flex items-center justify-center"
             >
               <span className="material-symbols-outlined ">add</span>
             </button>

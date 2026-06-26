@@ -108,7 +108,7 @@ const Product = ({ product }) => {
             <button
               onClick={() => updateQty("dec")}
               disabled={loading && loadingAction === "dec"}
-              className="w-8 h-8 flex items-center justify-center rounded bg-inverse-surface disabled:opacity-50"
+              className="px-md hover:bg-surface-container-high transition-colors h-full flex items-center justify-center"
             >
               <span className="material-symbols-outlined text-[18px]">
                 remove

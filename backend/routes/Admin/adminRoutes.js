@@ -11,6 +11,7 @@ const {
   updateProduct,
   deleteProduct,
   getAllOrders,
+  updateOrderStatus,
 } = require("../../controllers/Admin/productController");
 const { registerAdmin, loginAdmin } = require("../../controllers/Admin/admin");
 const RegisterAdmin = require("../../models/Admin/RegisterAdmin");
@@ -44,5 +45,6 @@ router.get("/verify", verifyAdmin, async (req, res) => {
 
 // Dashboard
 router.get("/all-orders", verifyAdmin, getAllOrders);
+router.put("/order/status", verifyAdmin, updateOrderStatus);
 
 module.exports = router;

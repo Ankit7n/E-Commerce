@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import useVerifyAdmin from "../../../Auth/ClientAuthLoader";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchOrders } from "../../../features/admin/adminOrderSlice";
+import {
+  fetchOrders,
+  updateOrderStatus,
+} from "../../../features/admin/adminOrderSlice";
 
 const Dashboard = () => {
   const { admin } = useSelector((state) => state.admin);
@@ -132,17 +135,33 @@ const Dashboard = () => {
 
                       {/* Status */}
                       <td className="px-lg py-md">
-                        <span
-                          className={`px-sm py-1 text-[10px] font-extrabold uppercase rounded-full ${
-                            order.status === "Delivered"
-                              ? "bg-green-100 text-green-800"
-                              : order.status === "Processing"
-                                ? "bg-blue-100 text-blue-800"
-                                : "bg-orange-100 text-orange-800"
-                          }`}
+                        <div
+                          className={`inline-flex rounded border overflow-hidden
+      ${
+        order.status === "Delivered"
+          ? "border-green-500"
+          : order.status === "Processing"
+            ? "border-blue-500"
+            : "border-orange-500"
+      }`}
                         >
-                          {order.status}
-                        </span>
+                          <select
+                            value={order.status}
+                            onChange={(e) =>
+                              dispatch(
+                                updateOrderStatus({
+                                  orderId: order._id,
+                                  status: e.target.value,
+                                }),
+                              )
+                            }
+                            className="px-sm py-1 text-[12px] font-bold uppercase bg-transparent outline-none"
+                          >
+                            <option value="Pending">Pending</option>
+                            <option value="Processing">Processing</option>
+                            <option value="Delivered">Delivered</option>
+                          </select>
+                        </div>
                       </td>
 
                       {/* Action */}

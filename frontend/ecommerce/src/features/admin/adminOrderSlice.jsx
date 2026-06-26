@@ -23,6 +23,30 @@ export const fetchOrders = createAsyncThunk(
   },
 );
 
+// update order status
+export const updateOrderStatus = createAsyncThunk(
+  "adminOrder/updateStatus",
+  async ({ orderId, status }, { getState, rejectWithValue }) => {
+    try {
+      const token = getState().admin.token;
+
+      const { data } = await axios.put(
+        "https://ecommerce-backend-u98m.onrender.com/admin/order/status",
+        { orderId, status },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        },
+      );
+
+      return data.order;
+    } catch (err) {
+      return rejectWithValue(err.response?.data?.message || err.message);
+    }
+  },
+);
+
 const adminOrderSlice = createSlice({
   name: "adminOrder",
   initialState: {
@@ -30,6 +54,7 @@ const adminOrderSlice = createSlice({
     loadingOrder: false,
     error: null,
     status: "idle",
+    updating: false,
   },
 
   extraReducers: (builder) => {
@@ -40,6 +65,7 @@ const adminOrderSlice = createSlice({
         state.loadingOrder = true;
         state.status = "loading";
       })
+
       .addCase(fetchOrders.fulfilled, (state, action) => {
         state.loadingOrder = false;
         state.orders = action.payload;
@@ -50,6 +76,25 @@ const adminOrderSlice = createSlice({
         state.loadingOrder = false;
         state.error = action.payload;
         state.status = "failed";
+      })
+
+      // update status
+
+      .addCase(updateOrderStatus.pending, (state) => {
+        state.updating = true;
+      })
+
+      .addCase(updateOrderStatus.fulfilled, (state, action) => {
+        state.updating = false;
+        const updated = action.payload;
+
+        state.orders = state.orders.map((order) =>
+          order._id === updated._id ? updated : order,
+        );
+      })
+
+      .addCase(updateOrderStatus.rejected, (state) => {
+        state.updating = false;
       });
   },
 });

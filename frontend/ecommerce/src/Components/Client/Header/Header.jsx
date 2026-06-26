@@ -118,7 +118,6 @@ const Header = () => {
                   }
                 >
                   <span className="material-symbols-outlined">person_add</span>
-                  <span>Register</span>
                 </NavLink>
 
                 <NavLink
@@ -132,7 +131,6 @@ const Header = () => {
                   }
                 >
                   <span className="material-symbols-outlined">login</span>
-                  <span>Login</span>
                 </NavLink>
               </>
             ) : (

@@ -26,7 +26,7 @@ const Home = () => {
               onClick={() => navigate("/client/shop")}
               className="flex flex-col sm:flex-row gap-md justify-center lg:justify-start"
             >
-              <button className="bg-cta-orange text-white px-xl py-md rounded-lg font-headline-md font-bold shadow-lg hover:scale-105 transition-transform active:scale-95">
+              <button className="bg-cta-orange text-white px-xl py-md rounded-lg font-headline-md font-bold shadow-lg hover:scale-105 transition-transform active:scale-95 cursor-pointer">
                 Shop Now
               </button>
               <button className="bg-surface border-2 border-outline-variant text-on-surface px-xl py-md rounded-lg font-headline-md font-bold hover:bg-surface-container-low transition-colors">
@@ -210,7 +210,7 @@ const Home = () => {
                 <img
                   onClick={() => navigate("/client/shop")}
                   alt="Product"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer"
                   data-alt="A pair of vibrant orange performance running shoes shown mid-air against a clean white background. The lighting is bright and high-key, highlighting the intricate mesh texture and aerodynamic silhouette of the footwear. The overall mood is energetic and focused on high performance and athletic excellence."
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXz1m4M0VAiNjPw5GvZRMGkFUNILFaeTW2W5fZyL2x4b0qIV4bqsXu1lzz7sqTovDbeBc87S_zImD6ca1_lh-jLQr5bNSgeAYdLGARaS7tknQtTybYpp1peCVh8HamMr2ZzlcxdF57ehroyUWgVckglbXM21qItIYbOtN_if0vLS0v3UWhPBVDVLtlsM7qXpGU7gGFW0as6vAlJvIZ71orx79VpHWHAgGJqLZcDdhxyrYdRcfmjpzExBfdFhwsH0vR-7RqdQiqnpeJ"
                 />
@@ -265,7 +265,7 @@ const Home = () => {
                 <img
                   onClick={() => navigate("/client/shop")}
                   alt="Product"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer"
                   data-alt="A minimalist white ceramic table lamp with a soft glow, placed on a light oak nightstand next to a neatly stacked book. The background is a soft-focus bedroom wall in a warm off-white tone. The lighting is warm and cozy, creating a peaceful and serene evening atmosphere in a modern home."
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3mKniNH8UQR--K1uWeAnAXb7PuY4ut2DBNZW5A1jift19pjFLEYtv1VC8lhDL4NMHNNDHPRz1QTWA1CGNw626KpC8tcnMj-liv8qAt-pakK3tAuv6HO3H9EfXOmlcQOKGPQEcNi_AjCs0KjRrGdhNmYHQjzy_KAuhxQAIhweJwDXXAG81LSFyt9gB1kV2yfVzjtLSysVSj8f0irhjBPzvwS3PzuC8kZeibV-3ZLxfiL-QS4wXq3xXxVfeikZNCNzXsVmFZKEh6toS"
                 />
@@ -323,7 +323,7 @@ const Home = () => {
                 <img
                   onClick={() => navigate("/client/shop")}
                   alt="Product"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer"
                   data-alt="A vintage-style instant camera in a soft pastel yellow color, sitting on a weathered wooden table outdoors. The morning sun casts long, gentle shadows and highlights the retro design elements. The atmosphere is nostalgic and artistic, emphasizing creative expression and a timeless aesthetic."
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuA2MUenv7i5ZGTcw7-Cso86v0rp4rAEjTMnmtZCyuRKncl-t0JXaizMHTnCrjeXuuE7rwKipaae38zDddYoWOAKPopjb_DXvU9j8aSKiQmNBBuc5XbG2l3S5LyOxH-kWR3ZxQGy2fBLbfgU5borb383Zf56tqMOhZ7h8W5nyelS_nY-DPFpRLA30qG0JOID6SsxCWigTP_-3tr-iIvhOT-k15Q0rwLQWobSOd1QS6DrLj0-kdOGZSnShSl4zWMAXt_SLY0DyYsYrfdp"
                 />
@@ -378,7 +378,7 @@ const Home = () => {
                 <img
                   onClick={() => navigate("/client/shop")}
                   alt="Product"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer"
                   data-alt="A designer leather backpack in rich cognac brown, hanging on a white wall hook in a minimalist hallway. The lighting is soft and even, highlighting the premium stitching and high-quality grain of the leather. The environment is clean and organized, conveying a sense of professional urban style."
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuChpZkrcFwYPRQ7okMVzo8zUCoIgR6xjgJ8xQVN2YcJ6-7DW4AjssVSa0JY_WlboMoEGogi_43vB-jydTuYZOWUsemApW-GT6s5SYideAj8cyrW4DsApWQatx8MQJsmtHmmZts1nwVBYA9KOYdOdopiSGNIEXzu1mL5b0c2anUqk7jCRsdaAdiBwcav0zCitWNVrz6djmZfWOdJVDTv473qBcYSXwqVnbPLYo9-LUmAZ4mN3dH8L-kQQ4M-Zu-UDrPNQdsKOIvAEbD4"
                 />
@@ -432,7 +432,7 @@ const Home = () => {
                 <img
                   onClick={() => navigate("/client/shop")}
                   alt="Product"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer"
                   data-alt="A pair of sleek aviator sunglasses with polarized dark lenses, resting on a polished chrome surface. The lighting creates sharp, clean reflections and highlights the metallic frame. The mood is sophisticated and modern, reflecting a high-end luxury lifestyle and precision engineering."
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCfvNXcaBCbwX3dzCLD5VxFzPu4M2d3jHZ3CJeZeFVZuuEWrnNMuJWwzPV3vidbYjonAYa5XPYmTtKIy49iSOPtUg-Tq6e5hTu7CIVnbcclzYkZwsDsA1hQVHu6H1QUBcv9nWb0GBRqokh0hgJpblFe8P07pEodUQ0G1Uw0XMTRtdKu0oJshOCDqX4q_AZxWgtfsxFO_ha62iN-veBdZPbePBFuGJ_1JJrk3MIBIcAjhSwLvPHapOoGDevgUOGyqiMlTz5NLs37M79B"
                 />
@@ -486,7 +486,7 @@ const Home = () => {
                 <img
                   onClick={() => navigate("/client/shop")}
                   alt="Product"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer"
                   data-alt="A pair of high-performance wireless earbuds in a sleek white charging case, shown on a neutral textured background. The lighting is soft and professional, with gentle highlights on the smooth plastic surfaces. The overall aesthetic is clean, minimalist, and focused on modern technology and portability."
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9Zxd9KVh20rBIi7weUx-GYYIn6a_UZ8-wBFLfINMN9dQ5IUn9NMqjqEEEj5MLrMKDeAjD15KiF5XxgQSujQyYC8foGTKAP2qF5nXt9z6TCZ4dY-CZg_y4b086BGLNus0xo2oIlo_3pK91v8gTSLf2NuJ5whPpgk-ul9cN6wIjyRG5a-lHZSc6BNKazWcHILUi_fQzhvfFaOyVADJ0CFeoiZTHhpoUk4n_0HhakydS4Oa3Bot_62mMqjH0_5v4EwhvXZDFB4cDLsdj"
                 />
@@ -540,7 +540,7 @@ const Home = () => {
                 <img
                   onClick={() => navigate("/client/shop")}
                   alt="Product"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 cursor-pointer"
                   data-alt="A modern smartwatch with a sleek black band and a high-resolution glowing digital display showing fitness metrics. The watch is placed on a dark, reflective granite surface under soft studio lighting. The scene represents a professional, health-conscious, and technology-driven lifestyle."
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwvw_FgLQCl8cFjCOJr3WixlhemBpi4ZPn0o5AZdnhr15SdkbK55blldoq-BHHrSB8ei2CZ8ejsOh9I34oBHdm_TNxnGbzdtXWj2jHhYZZGIwgDaggm_DS_poSY9lnCebukdhV6wzZi1qBsisHo9YTApLl5imZudPyj78vTc41728yTFNCstot2cMMeWYKpWolmxXm0iPx3I1kAqcsYRV94J0utdpXqLZsZvVdUPVY6GOZs_SwFYBaog_mIejfSAtUJmLdvqrMce7J"
                 />

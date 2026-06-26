@@ -42,7 +42,7 @@ const Products = () => {
         <section className="flex flex-wrap gap-sm mb-xl">
           <button
             onClick={() => setSelectedCategory("")}
-            className={`px-lg py-sm rounded-full ${
+            className={`px-lg py-sm rounded-full cursor-pointer ${
               selectedCategory === "" ? "bg-primary text-white" : "bg-gray-200"
             }`}
           >
@@ -53,7 +53,7 @@ const Products = () => {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-lg py-sm rounded-full ${
+              className={`px-lg py-sm rounded-full cursor-pointer ${
                 selectedCategory === cat
                   ? "bg-primary text-white"
                   : "bg-gray-200"
@@ -79,7 +79,7 @@ const Products = () => {
           <button
             disabled={currentPage === 1}
             onClick={() => setCurrentPage((p) => p - 1)}
-            className="px-3 py-1 border"
+            className="px-3 py-1 border cursor-pointer"
           >
             Prev
           </button>
@@ -91,7 +91,7 @@ const Products = () => {
           <button
             disabled={currentPage === pages}
             onClick={() => setCurrentPage((p) => p + 1)}
-            className="px-3 py-1 border"
+            className="px-3 py-1 border cursor-pointer"
           >
             Next
           </button>

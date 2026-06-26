@@ -47,7 +47,7 @@ const Carts = () => {
           onClick={() => dispatch(deleteAll())}
           className="flex items-center gap-xs text-secondary hover:text-error transition-colors font-label-md"
         >
-          <span className="material-symbols-outlined text-[20px]">
+          <span className="material-symbols-outlined text-[20px] cursor-pointer">
             delete_sweep
           </span>
           Clear All

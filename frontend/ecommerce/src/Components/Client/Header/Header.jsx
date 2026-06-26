@@ -110,7 +110,7 @@ const Header = () => {
                 <NavLink
                   to="/client/verify-email"
                   className={({ isActive }) =>
-                    `flex items-center gap-2 px-4 py-2 ${
+                    `flex flex-col items-center gap-2 px-4 py-2 ${
                       isActive
                         ? "text-primary font-bold"
                         : "text-on-surface-variant font-medium"
@@ -124,7 +124,7 @@ const Header = () => {
                 <NavLink
                   to="/client/login"
                   className={({ isActive }) =>
-                    `flex items-center gap-2 px-4 py-2 ${
+                    `flex flex-col items-center gap-2 px-4 py-2 ${
                       isActive
                         ? "text-primary font-bold"
                         : "text-on-surface-variant font-medium"
@@ -179,7 +179,7 @@ const Header = () => {
             {/* Admin Portal */}
             <button
               onClick={() => navigate("/admin/dashboard")}
-              className="bg-primary text-on-primary px-6 py-2 rounded-full font-bold shadow-md hover:shadow-lg active:scale-95 transition-all"
+              className="bg-primary text-on-primary px-2 py-2 rounded-full font-bold shadow-md hover:shadow-lg active:scale-95 transition-all"
             >
               Admin Portal
             </button>

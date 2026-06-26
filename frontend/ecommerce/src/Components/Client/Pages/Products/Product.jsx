@@ -90,7 +90,7 @@ const Product = ({ product }) => {
           <button
             onClick={addToCart}
             disabled={loading && loadingAction === "add"}
-            className="mt-auto w-full flex items-center justify-center gap-sm bg-primary-container text-on-primary-container font-bold py-3 rounded-lg disabled:opacity-60"
+            className="grow bg-primary hover:bg-primary-container text-white font-black text-body-lg h-14 rounded-lg shadow-lg shadow-primary/20 transition-all active:scale-95 flex items-center justify-center gap-sm"
           >
             {loading && loadingAction === "add" ? (
               <span className="animate-spin border-2 border-white border-t-transparent rounded-full w-4 h-4"></span>

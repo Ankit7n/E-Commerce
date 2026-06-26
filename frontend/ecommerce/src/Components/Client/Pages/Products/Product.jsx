@@ -110,9 +110,7 @@ const Product = ({ product }) => {
               disabled={loading && loadingAction === "dec"}
               className="px-md hover:bg-surface-container-high transition-colors h-full flex items-center justify-center"
             >
-              <span className="material-symbols-outlined text-[18px]">
-                remove
-              </span>
+              <span className="material-symbols-outlined ">remove</span>
             </button>
             <span className="font-bold text-on-surface w-6 text-center">
               {qty}
@@ -122,7 +120,7 @@ const Product = ({ product }) => {
               disabled={loading && loadingAction === "inc"}
               className="w-8 h-8 flex items-center justify-center rounded bg-inverse-surface disabled:opacity-50"
             >
-              <span className="material-symbols-outlined text-[18px]">add</span>
+              <span className="material-symbols-outlined ">add</span>
             </button>
           </div>
         )}

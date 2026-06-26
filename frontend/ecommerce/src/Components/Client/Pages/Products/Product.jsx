@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 const Product = ({ product }) => {
   const cartItems = useSelector((state) => state.cart.items);
   const { isLoggedIn } = useSelector((state) => state.user);
+  const [loading, setLoading] = useState(false);
+  const [loadingAction, setLoadingAction] = useState("");
 
   const cartItem = cartItems.find((item) => item.product._id === product._id);
   const qty = cartItem?.quantity || 0;
@@ -15,42 +17,49 @@ const Product = ({ product }) => {
 
   const addToCart = async () => {
     try {
+      setLoading(true);
+      setLoadingAction("add");
+
       if (!isLoggedIn) {
         alert("login First");
         return navigate("/client/login");
       }
+
       await axios.post(
         "https://ecommerce-backend-u98m.onrender.com/client/add-to-cart",
-        {
-          productId: product._id,
-        },
-        {
-          withCredentials: true,
-        },
+        { productId: product._id },
+        { withCredentials: true },
       );
 
       dispatch(fetchCart());
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
+      setLoadingAction("");
     }
   };
 
   const updateQty = async (type) => {
     try {
+      setLoading(true);
+      setLoadingAction(type); // "inc" or "dec"
+
       await axios.post(
         "https://ecommerce-backend-u98m.onrender.com/client/update-cart",
         {
           productId: product._id,
           type,
         },
-        {
-          withCredentials: true,
-        },
+        { withCredentials: true },
       );
 
       dispatch(fetchCart());
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
+      setLoadingAction("");
     }
   };
 
@@ -80,18 +89,26 @@ const Product = ({ product }) => {
         {qty === 0 ? (
           <button
             onClick={addToCart}
-            className="mt-auto w-full flex items-center justify-center gap-sm bg-primary-container text-on-primary-container font-bold py-3 rounded-lg hover:bg-primary hover:text-on-primary transition-all active:scale-[0.98]"
+            disabled={loading && loadingAction === "add"}
+            className="mt-auto w-full flex items-center justify-center gap-sm bg-primary-container text-on-primary-container font-bold py-3 rounded-lg disabled:opacity-60"
           >
-            <span className="material-symbols-outlined text-[20px]">
-              shopping_cart
-            </span>
-            Add to Cart
+            {loading && loadingAction === "add" ? (
+              <span className="animate-spin border-2 border-white border-t-transparent rounded-full w-4 h-4"></span>
+            ) : (
+              <>
+                <span className="material-symbols-outlined text-[20px]">
+                  shopping_cart
+                </span>
+                Add to Cart
+              </>
+            )}
           </button>
         ) : (
           <div className="flex items-center justify-between gap-sm mb-lg bg-secondary-container/30 p-2 rounded-lg">
             <button
               onClick={() => updateQty("dec")}
-              className="w-8 h-8 flex items-center justify-center rounded bg-inverse-surface text-inverse-on-surface hover:bg-primary transition-colors"
+              disabled={loading && loadingAction === "dec"}
+              className="w-8 h-8 flex items-center justify-center rounded bg-inverse-surface disabled:opacity-50"
             >
               <span className="material-symbols-outlined text-[18px]">
                 remove
@@ -102,7 +119,8 @@ const Product = ({ product }) => {
             </span>
             <button
               onClick={() => updateQty("inc")}
-              className="w-8 h-8 flex items-center justify-center rounded bg-inverse-surface text-inverse-on-surface hover:bg-primary transition-colors"
+              disabled={loading && loadingAction === "inc"}
+              className="w-8 h-8 flex items-center justify-center rounded bg-inverse-surface disabled:opacity-50"
             >
               <span className="material-symbols-outlined text-[18px]">add</span>
             </button>

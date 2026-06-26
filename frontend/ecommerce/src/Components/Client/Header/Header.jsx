@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutSuccess } from "../../../features/auth/userSlice";
 import { clearCart } from "../../../features/cart/CartSlice";
 import { useMemo } from "react";
+import ecommercelogo from "../../../../public/ecommercelogo.png";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ const Header = () => {
           {/* Logo + Navigation */}
           <div className="flex items-center gap-xl">
             <img
-              src="../../../../public/ecommerce logo.png"
+              src="../../../../public/ecommercelogo.png"
               alt="Logo"
               className="h-12 md:h-14 object-contain"
             />

@@ -100,13 +100,32 @@
    BASE STYLES
 ========================= */
 
-@layer base {
+/* @layer base {
   html {
     font-family: var(--font-sans);
   }
 
   body {
     @apply bg-background text-on-background;
+  }
+} */
+
+@layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    font-family: var(--font-sans);
+  }
+
+  body {
+    @apply bg-background text-on-background;
+  }
+
+  * {
+    box-sizing: border-box;
   }
 }
 

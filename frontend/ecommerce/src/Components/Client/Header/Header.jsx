@@ -45,10 +45,11 @@ const Header = () => {
         <nav className="flex justify-between items-center w-full px-gutter mx-auto h-full">
           {/* Logo + Navigation */}
           <div className="flex items-center gap-xl">
-            <span className="text-headline-md font-black tracking-tighter text-primary">
-              MODERN <br />
-              COMMERCE
-            </span>
+            <img
+              src="../../../../public/ecommerce logo.png"
+              alt="Logo"
+              className="h-12 md:h-14 object-contain"
+            />
 
             <div className="hidden md:flex items-center gap-lg">
               <NavLink

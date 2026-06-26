@@ -38,7 +38,7 @@ const ContactUs = () => {
                   <input
                     className="w-full h-12 px-md bg-surface-bright border border-outline-variant rounded-lg font-body-md form-input-focus transition-all"
                     id="name"
-                    placeholder="John Doe"
+                    placeholder="Ram Charan"
                     type="text"
                   />
                 </div>
@@ -52,7 +52,7 @@ const ContactUs = () => {
                   <input
                     className="w-full h-12 px-md bg-surface-bright border border-outline-variant rounded-lg font-body-md form-input-focus transition-all"
                     id="email"
-                    placeholder="john@example.com"
+                    placeholder="ram@example.com"
                     type="email"
                   />
                 </div>
@@ -132,9 +132,9 @@ const ContactUs = () => {
                       HQ Address
                     </p>
                     <p className="font-body-md text-on-surface">
-                      101 Innovation Way, Suite 500
+                      101 Sector-7, Chandigarh
                       <br />
-                      San Francisco, CA 94105
+                      India
                     </p>
                   </div>
                 </div>

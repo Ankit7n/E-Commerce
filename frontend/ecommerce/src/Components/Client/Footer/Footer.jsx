@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const Footer = () => {
   return (
     <main className="bg-background text-on-background font-body-md selection:bg-primary selection:text-white">
@@ -158,31 +160,34 @@ const Footer = () => {
       </footer>
       {/* <!-- BottomNavBar (Mobile Only) --> */}
       <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 md:hidden bg-surface dark:bg-inverse-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl border-t border-outline-variant">
-        <a
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive
+              ? "text-primary font-bold"
+              : "text-on-surface-variant font-medium hover:text-primary"
+          }
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/"
           className="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 active:scale-90 transition-transform duration-150"
-          href="#"
         >
           <span className="material-symbols-outlined">home</span>
-          <span className="text-label-sm font-label-sm">Home</span>
-        </a>
-        <a
+        </NavLink>
+        <NavLink
+          to="/client/shop"
           className="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150"
-          href="#"
         >
           <span className="material-symbols-outlined">shopping_bag</span>
           <span className="text-label-sm font-label-sm">Shop</span>
-        </a>
-        <a
-          className="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150"
-          href="#"
-        >
+        </NavLink>
+        <a className="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150">
           <span className="material-symbols-outlined">local_offer</span>
           <span className="text-label-sm font-label-sm">Deals</span>
         </a>
-        <a
-          className="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150"
-          href="#"
-        >
+        <a className="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150">
           <span className="material-symbols-outlined">account_circle</span>
           <span className="text-label-sm font-label-sm">Profile</span>
         </a>

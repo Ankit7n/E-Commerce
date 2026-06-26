@@ -1,12 +1,16 @@
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { fetchCart } from "../../../../features/cart/CartSlice";
+import { useState } from "react";
 
 const Cart = ({ item }) => {
   console.log("one item", item);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [loadingAction, setLoadingAction] = useState("");
 
   const updateQty = async (type) => {
+    setLoading(true);
     try {
       await axios.post(
         "https://ecommerce-backend-u98m.onrender.com/client/update-cart",
@@ -22,6 +26,9 @@ const Cart = ({ item }) => {
       dispatch(fetchCart());
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
+      setLoadingAction("");
     }
   };
 
@@ -77,6 +84,7 @@ const Cart = ({ item }) => {
           <div className="flex items-center border border-outline-variant rounded-lg overflow-hidden">
             <button
               onClick={() => updateQty("dec")}
+              disabled={loading && loadingAction === "dec"}
               className="px-md py-xs hover:bg-surface-variant transition-colors active:bg-outline-variant"
             >
               -
@@ -84,6 +92,7 @@ const Cart = ({ item }) => {
             <span className="px-md font-label-md">{item.quantity}</span>
             <button
               onClick={() => updateQty("inc")}
+              disabled={loading && loadingAction === "dec"}
               className="px-md py-xs hover:bg-surface-variant transition-colors active:bg-outline-variant"
             >
               +

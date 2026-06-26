@@ -2,6 +2,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { fetchCart } from "../../../../features/cart/CartSlice";
+import { useState } from "react";
 
 const ProductPreview = () => {
   const location = useLocation();
@@ -11,9 +12,13 @@ const ProductPreview = () => {
   const cartItem = cartItems.find((item) => item.product._id === product._id);
   const qty = cartItem?.quantity || 0;
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
+  const [loadingAction, setLoadingAction] = useState("");
 
   const addToCart = async () => {
     try {
+      setLoading(true);
+      setLoadingAction("add");
       if (!isLoggedIn) {
         alert("login First");
         return navigate("/client/login");
@@ -31,11 +36,15 @@ const ProductPreview = () => {
       dispatch(fetchCart());
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
+      setLoadingAction("");
     }
   };
 
   const updateQty = async (type) => {
     try {
+      setLoading(true);
       await axios.post(
         "https://ecommerce-backend-u98m.onrender.com/client/update-cart",
         {
@@ -50,6 +59,9 @@ const ProductPreview = () => {
       dispatch(fetchCart());
     } catch (error) {
       console.log(error);
+    } finally {
+      setLoading(false);
+      setLoadingAction("");
     }
   };
 
@@ -98,17 +110,25 @@ const ProductPreview = () => {
               {qty === 0 ? (
                 <button
                   onClick={addToCart}
+                  disabled={loading && loadingAction === "add"}
                   className="grow bg-primary hover:bg-primary-container text-white font-black text-body-lg h-14 rounded-lg shadow-lg shadow-primary/20 transition-all active:scale-95 flex items-center justify-center gap-sm"
                 >
-                  <span className="material-symbols-outlined">
-                    shopping_bag
-                  </span>
-                  Add to Cart
+                  {loading && loadingAction === "add" ? (
+                    <span className="animate-spin border-2 border-white border-t-transparent rounded-full w-4 h-4"></span>
+                  ) : (
+                    <>
+                      <span className="material-symbols-outlined">
+                        shopping_bag
+                      </span>
+                      Add to Cart
+                    </>
+                  )}
                 </button>
               ) : (
                 <div className="flex items-center border border-outline-variant rounded-lg overflow-hidden bg-surface-container-low h-14">
                   <button
                     onClick={() => updateQty("dec")}
+                    disabled={loading && loadingAction === "dec"}
                     className="px-md hover:bg-surface-container-high transition-colors h-full flex items-center justify-center"
                   >
                     <span className="material-symbols-outlined">remove</span>
@@ -118,6 +138,7 @@ const ProductPreview = () => {
                   </span>
                   <button
                     onClick={() => updateQty("inc")}
+                    disabled={loading && loadingAction === "dec"}
                     className="px-md hover:bg-surface-container-high transition-colors h-full flex items-center justify-center"
                   >
                     <span className="material-symbols-outlined">add</span>

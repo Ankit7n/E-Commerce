@@ -47,7 +47,7 @@ const Header = () => {
           {/* Logo + Navigation */}
           <div className="flex items-center gap-xl">
             <img
-              src="../../../../public/ecommercelogo.png"
+              src="/ecommercelogo.png"
               alt="Logo"
               className="h-12 md:h-14 object-contain"
             />

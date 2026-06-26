@@ -22,6 +22,8 @@ import Dashboard from "./Components/Admin/Dashboard/Dashboard";
 import ProductForm from "./Components/Admin/Products/ProductForm";
 import ApiProducts from "./Components/Admin/Products/ApiProducts";
 import EditProduct from "./Components/Admin/Products/EditProduct";
+import ContactUs from "./Components/Client/Pages/ContactUs/ContactUs";
+import AboutUs from "./Components/Client/Pages/AboutUs/AboutUs";
 
 export default function Context() {
   return (
@@ -30,6 +32,8 @@ export default function Context() {
       <Route element={<ClientLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/client/shop" element={<Products />} />
+        <Route path="/client/contact" element={<ContactUs />} />
+        <Route path="/client/about" element={<AboutUs />} />
         <Route path="/client/login" element={<Login />} />
         <Route path="/client/register" element={<Register />} />
         <Route path="/client/verify-email" element={<VerifyEmail />} />

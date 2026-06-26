@@ -75,19 +75,27 @@ const Header = () => {
                 Shop
               </NavLink>
 
-              <a
-                href="#"
-                className="text-on-surface-variant font-medium hover:text-primary"
+              <NavLink
+                to="/client/contact"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary font-bold"
+                    : "text-on-surface-variant font-medium hover:text-primary"
+                }
               >
                 Contact Us
-              </a>
+              </NavLink>
 
-              <a
-                href="#"
-                className="text-on-surface-variant font-medium hover:text-primary"
+              <NavLink
+                to="/client/about"
+                className={({ isActive }) =>
+                  isActive
+                    ? "text-primary font-bold"
+                    : "text-on-surface-variant font-medium hover:text-primary"
+                }
               >
                 About Us
-              </a>
+              </NavLink>
             </div>
           </div>
 

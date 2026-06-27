@@ -183,13 +183,26 @@ const Footer = () => {
         </NavLink> */}
         <NavLink
           to="/"
-          className="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary rounded-full px-4 py-1 active:scale-90 transition-transform duration-150"
+          className={({ isActive }) =>
+            `flex flex-col items-center justify-center rounded-full px-4 py-1 transition-all duration-200 ${
+              isActive
+                ? "bg-secondary-container"
+                : " text-on-secondary-container"
+            }`
+          }
         >
           <span className="material-symbols-outlined">home</span>
+          <span className="text-label-sm font-label-sm">Home</span>
         </NavLink>
         <NavLink
           to="/client/shop"
-          className="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150"
+          className={({ isActive }) =>
+            `flex flex-col items-center justify-center rounded-full px-4 py-1 transition-all duration-200 ${
+              isActive
+                ? "bg-secondary-container"
+                : " text-on-secondary-container"
+            }`
+          }
         >
           <span className="material-symbols-outlined">shopping_bag</span>
           <span className="text-label-sm font-label-sm">Shop</span>

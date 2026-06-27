@@ -13,7 +13,6 @@ const Footer = () => {
   };
   return (
     <main className=" w-full z-50 bg-background text-on-background font-body-md selection:bg-primary selection:text-white">
-      {/* <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 md:hidden bg-surface dark:bg-inverse-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl border-t border-outline-variant"></nav> */}
       {/* <!-- Footer --> */}
       <footer className="bg-inverse-surface dark:bg-surface-container-lowest text-inverse-on-surface dark:text-on-surface w-full py-2xl px-gutter mx-auto grid grid-cols-1 md:grid-cols-4 gap-lg">
         <div className="flex flex-col gap-md">
@@ -207,17 +206,38 @@ const Footer = () => {
           <span className="material-symbols-outlined">shopping_bag</span>
           <span className="text-label-sm font-label-sm">Shop</span>
         </NavLink>
-        <a className="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150">
-          <span className="material-symbols-outlined">local_offer</span>
-          <span className="text-label-sm font-label-sm">Deals</span>
-        </a>
-        <a
-          onClick={handleProfile}
-          className="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-high active:scale-90 transition-transform duration-150"
+        <NavLink
+          to="/client/contact"
+          className={({ isActive }) =>
+            `flex flex-col items-center justify-center rounded-full px-4 py-1 transition-all duration-200 ${
+              isActive
+                ? "bg-secondary-container"
+                : " text-on-secondary-container"
+            }`
+          }
+        >
+          <span className="material-symbols-outlined">call</span>
+          <span className="text-label-sm font-label-sm">ContactUs</span>
+        </NavLink>
+        <NavLink
+          to={isLoggedIn ? "/client/profile" : "#"}
+          onClick={(e) => {
+            if (!isLoggedIn) {
+              e.preventDefault();
+              alert("You are not login");
+            }
+          }}
+          className={({ isActive }) =>
+            `flex flex-col items-center justify-center rounded-full px-4 py-1 transition-all duration-200 ${
+              isActive
+                ? "bg-secondary-container"
+                : "text-on-secondary-container"
+            }`
+          }
         >
           <span className="material-symbols-outlined">account_circle</span>
           <span className="text-label-sm font-label-sm">Profile</span>
-        </a>
+        </NavLink>
       </nav>
     </main>
   );

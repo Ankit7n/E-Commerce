@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +11,7 @@ const Header = () => {
 
   const { admin, isAuthenticated } = useSelector((state) => state.admin);
   console.log("admin", admin, "isAuthenticated", isAuthenticated);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = () => {
     dispatch(logoutAdmin());
@@ -19,59 +20,56 @@ const Header = () => {
   return (
     <main className="sticky top-0 z-50 bg-background text-on-background font-body-md selection:bg-primary selection:text-white ">
       <header className=" h-16 bg-surface shadow-sm flex justify-between items-center px-lg z-40 ">
-        <div className="flex items-center gap-md flex-1">
-          <NavLink
-            to="/"
-            className="flex items-center gap-xs px-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors active:scale-95 mr-md"
-          >
-            <span className="material-symbols-outlined text-[20px]">
-              home_app_logo
-            </span>
-            <span className="font-label-md text-label-md">Home</span>
-          </NavLink>
-          <NavLink
-            to="/admin/dashboard"
-            className="flex items-center gap-xs px-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors active:scale-95 mr-md"
-          >
-            <span className="material-symbols-outlined text-[20px]">
-              dashboard
-            </span>
-            <span className="font-label-md text-label-md">DashBoard</span>
-          </NavLink>
-          <NavLink
-            to="/admin/apiProducts"
-            className="flex items-center gap-xs px-sm  text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors active:scale-95 mr-md"
-          >
-            <span className="material-symbols-outlined text-[20px]">
-              inventory_2
-            </span>
-            <span className="font-label-md text-label-md">Products</span>
-          </NavLink>
-          <div className="relative  group">
-            <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">
-              search
-            </span>
-            <input
-              className="w-full pl-10 pr-md py-2 bg-surface-container border-none rounded-lg focus:ring-2 focus:ring-primary transition-all text-body-sm"
-              placeholder="Search orders, products, or customers..."
-              type="text"
-            />
+        {/* Mobile Menu Button */}
+        <div className="flex items-center gap-3">
+          <button onClick={() => setMenuOpen(true)} className="md:hidden">
+            <span className="material-symbols-outlined">menu</span>
+          </button>
+          <div className="hidden md:flex items-center gap-md">
+            <NavLink
+              to="/"
+              className="flex items-center gap-xs px-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors active:scale-95 mr-md"
+            >
+              <span className="material-symbols-outlined text-[20px]">
+                home_app_logo
+              </span>
+              <span className="font-label-md text-label-md">Home</span>
+            </NavLink>
+            <NavLink
+              to="/admin/dashboard"
+              className="flex items-center gap-xs px-sm text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors active:scale-95 mr-md"
+            >
+              <span className="material-symbols-outlined text-[20px]">
+                dashboard
+              </span>
+              <span className="font-label-md text-label-md">DashBoard</span>
+            </NavLink>
+            <NavLink
+              to="/admin/apiProducts"
+              className="flex items-center gap-xs px-sm  text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-colors active:scale-95 mr-md"
+            >
+              <span className="material-symbols-outlined text-[20px]">
+                inventory_2
+              </span>
+              <span className="font-label-md text-label-md">Products</span>
+            </NavLink>
+            <div className="relative  group">
+              <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">
+                search
+              </span>
+              <input
+                className="w-full pl-10 pr-md py-2 bg-surface-container border-none rounded-lg focus:ring-2 focus:ring-primary transition-all text-body-sm"
+                placeholder="Search orders, products, or customers..."
+                type="text"
+              />
+            </div>
           </div>
         </div>
         <div className="flex items-center gap-xl">
-          <div className="flex items-center gap-lg">
-            <button className="relative text-on-surface-variant hover:text-primary transition-colors">
-              <span className="material-symbols-outlined">notifications</span>
-              <span className="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span>
-            </button>
-            <button className="text-on-surface-variant hover:text-primary transition-colors">
-              <span className="material-symbols-outlined">help_outline</span>
-            </button>
-          </div>
           <div className="h-8 w-px bg-outline-variant"></div>
           {admin && (
             <div className="flex items-center gap-sm">
-              <p className="font-label-md text-label-md text-on-surface">
+              <p className="hidden sm:block font-label-md text-label-md text-on-surface">
                 {admin?.name}
               </p>
               <img
@@ -109,7 +107,7 @@ const Header = () => {
 
             <button
               onClick={() => navigate("/admin/register")}
-              className="flex items-center gap-xs px-sm py-1.5 bg-primary text-on-primary hover:bg-primary/90 rounded-lg transition-all active:scale-95 font-bold text-label-md"
+              className="hidden sm-block flex items-center gap-xs px-sm py-1.5 bg-primary text-on-primary hover:bg-primary/90 rounded-lg transition-all active:scale-95 font-bold text-label-md"
             >
               <span className="material-symbols-outlined text-[20px]">
                 person_add
@@ -119,6 +117,73 @@ const Header = () => {
           </div>
         </div>
       </header>
+      {menuOpen && (
+        <>
+          {/* Overlay */}
+          <div
+            className="fixed inset-0 bg-black/40 z-40"
+            onClick={() => setMenuOpen(false)}
+          />
+
+          {/* Sidebar */}
+          <div className="fixed top-0 left-0 h-full w-72 bg-surface shadow-xl z-50 p-5">
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="font-bold text-lg">Admin Panel</h2>
+
+              <button onClick={() => setMenuOpen(false)}>
+                <span className="material-symbols-outlined">close</span>
+              </button>
+            </div>
+
+            <nav className="flex flex-col gap-4">
+              <NavLink to="/" onClick={() => setMenuOpen(false)}>
+                🏠 Home
+              </NavLink>
+
+              <NavLink to="/admin/dashboard" onClick={() => setMenuOpen(false)}>
+                📊 Dashboard
+              </NavLink>
+
+              <NavLink
+                to="/admin/apiProducts"
+                onClick={() => setMenuOpen(false)}
+                ac
+              >
+                📦 Products
+              </NavLink>
+
+              {isAuthenticated ? (
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setMenuOpen(false);
+                  }}
+                >
+                  🚪 Logout
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    navigate("/admin/login");
+                    setMenuOpen(false);
+                  }}
+                >
+                  🔐 Login
+                </button>
+              )}
+
+              <button
+                onClick={() => {
+                  navigate("/admin/register");
+                  setMenuOpen(false);
+                }}
+              >
+                ➕ Register
+              </button>
+            </nav>
+          </div>
+        </>
+      )}
     </main>
   );
 };

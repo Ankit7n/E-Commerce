@@ -1,9 +1,13 @@
 import { useSelector } from "react-redux";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const Footer = () => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isProfileActive = isLoggedIn && location.pathname === "/client/profile";
+
   const handleProfile = () => {
     if (isLoggedIn) {
       navigate("/client/profile");
@@ -170,16 +174,6 @@ const Footer = () => {
       </footer>
       {/* <!-- BottomNavBar (Mobile Only) --> */}
       <nav className="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 md:hidden bg-surface dark:bg-inverse-surface shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] rounded-t-xl border-t border-outline-variant">
-        {/* <NavLink
-          to="/"
-          className={({ isActive }) =>
-            isActive
-              ? "text-primary font-bold"
-              : "text-on-surface-variant font-medium hover:text-primary"
-          }
-        >
-          Home
-        </NavLink> */}
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -219,25 +213,17 @@ const Footer = () => {
           <span className="material-symbols-outlined">call</span>
           <span className="text-label-sm font-label-sm">ContactUs</span>
         </NavLink>
-        <NavLink
-          to={isLoggedIn ? "/client/profile" : "#"}
-          onClick={(e) => {
-            if (!isLoggedIn) {
-              e.preventDefault();
-              alert("You are not login");
-            }
-          }}
-          className={({ isActive }) =>
-            `flex flex-col items-center justify-center rounded-full px-4 py-1 transition-all duration-200 ${
-              isActive
-                ? "bg-secondary-container"
-                : "text-on-secondary-container"
-            }`
-          }
+        <div
+          onClick={handleProfile}
+          className={`flex flex-col items-center justify-center rounded-full px-4 py-1 transition-all duration-200 cursor-pointer ${
+            isProfileActive
+              ? "bg-secondary-container"
+              : "text-on-secondary-container"
+          }`}
         >
           <span className="material-symbols-outlined">account_circle</span>
           <span className="text-label-sm font-label-sm">Profile</span>
-        </NavLink>
+        </div>
       </nav>
     </main>
   );

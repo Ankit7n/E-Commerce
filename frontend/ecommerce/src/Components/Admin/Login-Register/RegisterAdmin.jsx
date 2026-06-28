@@ -57,6 +57,14 @@ const RegisterAdmin = () => {
 
   return (
     <main className="bg-background text-on-background min-h-screen flex flex-col overflow-x-hidden">
+      <button
+        type="button"
+        onClick={() => navigate("/")}
+        className=" flex items-center gap-2 text-blue-600 hover:text-purple-800"
+      >
+        <span className="material-symbols-outlined">arrow_back</span>
+        Back to Store
+      </button>
       {/* <!-- Main Content Canvas --> */}
       <main className="grow flex items-center justify-center p-sm relative admin-gradient-bg">
         {/* <!-- Background Security Pattern --> */}

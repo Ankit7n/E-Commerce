@@ -17,10 +17,10 @@ const Home = () => {
             <h1 className="font-display-lg text-display-lg mb-md leading-tight">
               Define Your Style with Precision.
             </h1>
-            <p className="font-body-lg text-body-lg text-on-surface-variant    mb-xl ">
+            <p className="font-body-lg text-body-lg text-on-surface-variant mb-xl ">
               Experience the pinnacle of high-performance commerce. Curated
               collections, lightning-fast delivery, and quality that speaks
-              htmlFor itself.
+              itself.
             </p>
             <div
               onClick={() => navigate("/client/shop")}

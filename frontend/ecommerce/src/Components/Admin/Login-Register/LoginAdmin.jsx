@@ -80,7 +80,6 @@ const LoginAdmin = () => {
               "url('https://www.transparenttextures.com/patterns/carbon-fibre.png')",
           }}
         ></div>
-        {/* <div className="w-full max-w-120 z-10"> */}
 
         <div className="w-150 z-10">
           {/* <!-- Warning Banner --> */}
